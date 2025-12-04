@@ -10,6 +10,7 @@ function App() {
   async function getTodos() {
     try {
       setLoading(true);
+      
       setError(null);
       const todos = await service.getTasks();
       setTodos(todos); 
