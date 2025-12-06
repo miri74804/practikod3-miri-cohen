@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 var connectionString = Environment.GetEnvironmentVariable("ConnectionStrings:ToDoDB") 
                        ?? builder.Configuration.GetConnectionString("ToDoDB");
 
+Console.WriteLine($"Connection string: {connectionString}");
+
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
