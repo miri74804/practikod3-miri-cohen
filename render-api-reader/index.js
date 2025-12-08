@@ -9,6 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 3000; 
 const RENDER_API_BASE = 'https://api.render.com/v1';
 
+app.get('/', (req, res) => {
+    res.json({ 
+        status: "OK", 
+        message: "Node API Reader Service is running. Use /services to fetch data.",
+        documentation: "API Docs: /services"
+    });
+});
+
 app.get('/services', async (req, res) => {
     try {
         // לוודא שיש מפתח לפני שמתחילים
